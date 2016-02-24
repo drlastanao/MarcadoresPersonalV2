@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btCarpeta = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btAddCarpeta = new System.Windows.Forms.Button();
+            this.btAddEnlace = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -77,24 +77,27 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(519, 262);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
-            // btCarpeta
+            // btAddCarpeta
             // 
-            this.btCarpeta.Location = new System.Drawing.Point(226, 336);
-            this.btCarpeta.Name = "btCarpeta";
-            this.btCarpeta.Size = new System.Drawing.Size(112, 23);
-            this.btCarpeta.TabIndex = 4;
-            this.btCarpeta.Text = "Añadir carpeta";
-            this.btCarpeta.UseVisualStyleBackColor = true;
+            this.btAddCarpeta.Location = new System.Drawing.Point(218, 640);
+            this.btAddCarpeta.Name = "btAddCarpeta";
+            this.btAddCarpeta.Size = new System.Drawing.Size(112, 23);
+            this.btAddCarpeta.TabIndex = 4;
+            this.btAddCarpeta.Text = "Añadir carpeta";
+            this.btAddCarpeta.UseVisualStyleBackColor = true;
+            this.btAddCarpeta.Click += new System.EventHandler(this.btCarpeta_Click);
             // 
-            // button1
+            // btAddEnlace
             // 
-            this.button1.Location = new System.Drawing.Point(226, 640);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Añadir enlace";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAddEnlace.Location = new System.Drawing.Point(218, 336);
+            this.btAddEnlace.Name = "btAddEnlace";
+            this.btAddEnlace.Size = new System.Drawing.Size(112, 23);
+            this.btAddEnlace.TabIndex = 5;
+            this.btAddEnlace.Text = "Añadir enlace";
+            this.btAddEnlace.UseVisualStyleBackColor = true;
+            this.btAddEnlace.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView2
             // 
@@ -108,6 +111,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(507, 262);
             this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDown);
             // 
             // Principal
             // 
@@ -116,8 +120,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 675);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btCarpeta);
+            this.Controls.Add(this.btAddEnlace);
+            this.Controls.Add(this.btAddCarpeta);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.textBox1);
@@ -139,8 +143,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btCarpeta;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btAddCarpeta;
+        private System.Windows.Forms.Button btAddEnlace;
         private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

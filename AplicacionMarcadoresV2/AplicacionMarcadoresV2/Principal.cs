@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -111,6 +112,86 @@ namespace AplicacionMarcadoresV2
 
             dataGridView2.DataSource = auxCarpetas;
 
+
+        }
+
+        private void btCarpeta_Click(object sender, EventArgs e)
+        {
+            AltaNodo aux = new AltaNodo();
+            aux.carpeta = new Carpeta();
+
+            aux.ShowDialog();
+            if (aux.guardar)
+                nodo.carpetas.Add(aux.carpeta);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AltaNodo aux = new AltaNodo();
+            aux.enlace = new Enlace();
+            aux.ShowDialog();
+            if (aux.guardar)
+                nodo.enlaces.Add(aux.enlace);
+        }
+
+       
+
+        private void dataGridView2_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.RowIndex > -1 && e.Button==MouseButtons.Left)
+            {
+                Process.Start(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
+
+
+            }
+
+
+            if (e.RowIndex > -1 && e.Button == MouseButtons.Right)
+            {
+                AltaNodo aux = new AltaNodo();
+                aux.carpeta = buscarCarpeta(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
+                aux.ShowDialog();
+            }
+
+        }
+
+        private Carpeta buscarCarpeta(string v)
+        {
+            foreach (var item in nodo.carpetas)
+            {
+                if (item.ruta == v) return item;
+            }
+            return null;
+
+        }
+        private Enlace buscarEnlace(string v)
+        {
+            foreach (var item in nodo.enlaces)
+            {
+                if (item.url == v) return item;
+            }
+            return null;
+
+        }
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.Button == MouseButtons.Left)
+            {
+                Process.Start(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+
+
+            }
+
+
+            if (e.RowIndex > -1 && e.Button == MouseButtons.Right)
+            {
+                AltaNodo aux = new AltaNodo();
+                aux.enlace = buscarEnlace(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                aux.ShowDialog();
+            }
 
         }
     }
