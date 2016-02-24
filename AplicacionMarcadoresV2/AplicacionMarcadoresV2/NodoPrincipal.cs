@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionMarcadoresV2
 {
-    [Serializable]
+    [Serializable()]
     public class NodoPrincipal
     {
 

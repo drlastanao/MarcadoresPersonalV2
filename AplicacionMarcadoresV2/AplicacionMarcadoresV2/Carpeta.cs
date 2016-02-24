@@ -3,24 +3,27 @@ using System.Collections.Generic;
 
 namespace AplicacionMarcadoresV2
 {
-    [Serializable]
+    [Serializable()]
     public class Carpeta
     {
 
-        public string tipo = "Carpeta";
-        public string ruta;
-        public string descripcion;
-        public List<string> subcarpetas;
+        public String tipo { get; set; }
+        public String ruta { get; set; }
+        public String descripcion { get; set; }
+    public List<String> subcarpetas;
 
 
         public Carpeta()
         {
-            subcarpetas = new List<string>();
+            tipo = "Carpeta";
+
+            subcarpetas = new List<String>();
         }
 
         public bool buscar(String texto)
         {
-            return Utiles.Contains(tipo, texto, StringComparison.CurrentCultureIgnoreCase) ||
+            return texto==""||
+                   Utiles.Contains(tipo, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    Utiles.Contains(ruta, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    Utiles.Contains(descripcion, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    buscarSubCarpetas(texto);

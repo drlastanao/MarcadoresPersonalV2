@@ -3,25 +3,27 @@ using System.Collections.Generic;
 
 namespace AplicacionMarcadoresV2
 {
-    [Serializable]
+    [Serializable()]
     public class Enlace
     {
-        public string tipo = "Carpeta";
-        public string url;
-        public string descripcion;
-        public List<string> subenlaces;
+        public String tipo { get; set; }
+        public String url{ get; set; }
+    public String descripcion { get; set; }
+        public List<String> subenlaces;
 
 
 
         public Enlace()
         {
-            subenlaces = new List<string>();
+            tipo = "Enlace";
+            subenlaces = new List<String>();
         }
 
 
         public bool buscar(String texto)
         {
-            return Utiles.Contains(tipo, texto, StringComparison.CurrentCultureIgnoreCase) ||
+            return texto=="" ||
+                   Utiles.Contains(tipo, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    Utiles.Contains(url, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    Utiles.Contains(descripcion, texto, StringComparison.CurrentCultureIgnoreCase) ||
                    buscarSubEnlaces(texto);

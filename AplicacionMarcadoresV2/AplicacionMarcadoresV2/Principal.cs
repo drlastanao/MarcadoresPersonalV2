@@ -28,6 +28,25 @@ namespace AplicacionMarcadoresV2
         private void Principal_Load(object sender, EventArgs e)
         {
             CargarFichero();
+
+            //codigo de pruebas
+
+            Enlace enlace = new Enlace();
+            enlace.url = "http://www.google.es";
+            enlace.descripcion = "El mejor buscador";
+
+            nodo.enlaces.Add(enlace);
+
+
+            Carpeta carpeta = new Carpeta();
+            carpeta.ruta="c:\\pu\\";
+            carpeta.descripcion = "Pruebas";
+
+            nodo.carpetas.Add(carpeta);
+
+
+
+
         }
 
         private void CargarFichero()
@@ -67,6 +86,32 @@ namespace AplicacionMarcadoresV2
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
             GuardarFichero();
+        }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+            String texto = textBox1.Text.Trim();
+
+            List<Enlace> auxEnlaces = new List<Enlace>();
+
+            foreach (var enlace in nodo.enlaces)
+                if (enlace.buscar(texto))
+                    auxEnlaces.Add(enlace);
+
+
+            dataGridView1.DataSource = auxEnlaces;
+   
+
+            List<Carpeta> auxCarpetas = new List<Carpeta>();
+
+            foreach (var carpeta in nodo.carpetas)
+                if (carpeta.buscar(texto))
+                    auxCarpetas.Add(carpeta);
+
+
+            dataGridView2.DataSource = auxCarpetas;
+
+
         }
     }
 }
