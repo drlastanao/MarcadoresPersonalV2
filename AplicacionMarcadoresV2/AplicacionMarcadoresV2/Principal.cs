@@ -30,20 +30,20 @@ namespace AplicacionMarcadoresV2
         {
             CargarFichero();
 
-            //codigo de pruebas
+            ////codigo de pruebas
 
-            Enlace enlace = new Enlace();
-            enlace.url = "http://www.google.es";
-            enlace.descripcion = "El mejor buscador";
+            //Enlace enlace = new Enlace();
+            //enlace.url = "http://www.google.es";
+            //enlace.descripcion = "El mejor buscador";
 
-            nodo.enlaces.Add(enlace);
+            //nodo.enlaces.Add(enlace);
 
 
-            Carpeta carpeta = new Carpeta();
-            carpeta.ruta="c:\\pu\\";
-            carpeta.descripcion = "Pruebas";
+            //Carpeta carpeta = new Carpeta();
+            //carpeta.ruta="c:\\pu\\";
+            //carpeta.descripcion = "Pruebas";
 
-            nodo.carpetas.Add(carpeta);
+            //nodo.carpetas.Add(carpeta);
 
 
 
@@ -122,7 +122,10 @@ namespace AplicacionMarcadoresV2
 
             aux.ShowDialog();
             if (aux.guardar)
+            {
                 nodo.carpetas.Add(aux.carpeta);
+                cambios = true;
+            }
 
         }
 
@@ -132,7 +135,11 @@ namespace AplicacionMarcadoresV2
             aux.enlace = new Enlace();
             aux.ShowDialog();
             if (aux.guardar)
+            {
                 nodo.enlaces.Add(aux.enlace);
+                cambios = true;
+            }
+
         }
 
        
@@ -153,6 +160,7 @@ namespace AplicacionMarcadoresV2
                 AltaNodo aux = new AltaNodo();
                 aux.carpeta = buscarCarpeta(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
                 aux.ShowDialog();
+                if (aux.guardar) cambios = true;
             }
 
         }
@@ -191,8 +199,11 @@ namespace AplicacionMarcadoresV2
                 AltaNodo aux = new AltaNodo();
                 aux.enlace = buscarEnlace(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                 aux.ShowDialog();
+                if (aux.guardar) cambios = true;
             }
 
         }
+
+  
     }
 }

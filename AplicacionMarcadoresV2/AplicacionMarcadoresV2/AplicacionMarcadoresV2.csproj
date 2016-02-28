@@ -53,9 +53,9 @@
     <Compile Include="AltaNodo.Designer.cs">
       <DependentUpon>AltaNodo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Carpeta.cs" />
-    <Compile Include="Enlace.cs" />
-    <Compile Include="NodoPrincipal.cs" />
+    <Compile Include="Clases\Carpeta.cs" />
+    <Compile Include="Clases\Enlace.cs" />
+    <Compile Include="Clases\NodoPrincipal.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +64,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utiles.cs" />
+    <Compile Include="Clases\Utiles.cs" />
     <EmbeddedResource Include="AltaNodo.resx">
       <DependentUpon>AltaNodo.cs</DependentUpon>
     </EmbeddedResource>

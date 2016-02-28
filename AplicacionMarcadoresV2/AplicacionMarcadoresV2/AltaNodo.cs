@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AplicacionMarcadoresV2
 {
@@ -124,6 +125,15 @@ namespace AplicacionMarcadoresV2
 
             }
             Close();
+        }
+
+        
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex>-1)
+                Process.Start(listBox1.Items[listBox1.SelectedIndex].ToString());
+
         }
     }
 }

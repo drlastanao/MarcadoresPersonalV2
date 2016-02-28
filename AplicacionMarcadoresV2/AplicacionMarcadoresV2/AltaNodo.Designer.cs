@@ -78,6 +78,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(248, 199);
             this.listBox1.TabIndex = 4;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
             // btAdd
             // 
